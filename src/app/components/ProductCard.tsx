@@ -1,7 +1,8 @@
 import React, { useState }from 'react'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { addToCart, increment, decrement } from '../store/cartSlice'
+import { useAppDispatch } from '../store/hooks'
+import { addToCart } from '../store/cartSlice'
 import { Product } from '../modals/product'
+import Image from 'next/image'
 
 interface Props {
   product: Product
@@ -22,7 +23,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div className="p-4 border rounded shadow bg-white dark:bg-gray-800">
-      <img src={product.image} alt={product.title} className="h-48 object-contain mx-auto mb-2" />
+      <Image src={product.image} alt={product.title} width={50} height={50} className="h-48 object-contain mx-auto mb-2" />
       <h2 className="font-semibold text-lg dark:text-white">{product.title}</h2>
       <p className="text-gray-700 dark:text-gray-300">${product.price.toFixed(2)}</p>
 
